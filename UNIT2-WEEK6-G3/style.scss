@@ -6,7 +6,12 @@ $font-weight: bold;
 
 /*animazioni*/
 $animationName: hero;
-$animationDuration: 2s;
+$animationNameButtons: buttons;
+$animationDuration: 3s;
+$animationDuration2: 1s;
+$transictionDuration: 3s;
+$transictionFrom: margin-top;
+
 
 #container {
     background-color: rgb(236, 236, 205);
@@ -48,14 +53,22 @@ nav ul {
 }
 
 .hero-content {
+    margin-top: 10px;
     animation-name: $animationName;
-    animation-duration: $animationDuration;
+    animation-duration: $animationDuration2;
+    transition-property: $transictionFrom;
+    transition-duration: 1.5s;
+    transition-timing-function: ease-in;
 }
 
 .reference {
     padding: 3rem;
     animation-name: $animationName;
     animation-duration: $animationDuration;
+    margin-top: 20px;
+    transition-property: $transictionFrom;
+    transition-duration: 3s;
+    transition-timing-function: ease-in;
 }
 
 .headline span {
@@ -70,8 +83,11 @@ nav ul {
     border-radius: 20px;
     margin: 10px;
     padding: 3px;
-    animation-name: $animationName;
+    animation-name: $animationNameButtons;
     animation-duration: $animationDuration;
+    transition: transform 3.5s;
+    transform: rotate(360deg);
+    transform-origin: 60% 60%;
 }
 
 .bottoni {
@@ -112,10 +128,39 @@ h1 {
 /*ANIMAZIONI*/
 
 @keyframes hero {
-    0% {top: 5px;}
-    30% {top: 4px;}
-    50% {top: 3px;}
-    80% {top: 2px;}
-    90% {top: 1px;}
-    100% {top: 0px;}
+    0% {opacity: 0; }
+    30% {opacity: 20%;
+         transition: transform;}
+    50% {opacity: 40%;
+         transition: transform;}
+    80% {opacity: 60%;
+         transition: transform;}
+    90% {opacity: 80%;
+         transition: transform;}
+    100% {opacity: 100%;
+         transition: transform;}
+}
+
+@keyframes buttons {
+    0% {
+        opacity: 0;
+     }
+    30% {
+        opacity: 20%;
+    }
+    50% {
+        opacity: 40%;
+    }
+    80% {
+        opacity: 60%;
+    }
+    90% {
+        opacity: 80%;
+    }
+    100% {
+        transition: transform 3.5s;
+        transform: rotate(360deg);
+        transform-origin: 60% 60%;
+    }
+
 }
